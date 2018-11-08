@@ -1,0 +1,24 @@
+RewriteEngine On
+RewriteBase /
+RewriteCond %{HTTP_HOST} ^www\.(.*)$ [NC]
+RewriteRule ^(.*)$ http://%1/$1 [R=301,L]
+
+RewriteRule ^post/(.*)?$ single.php?q=$1
+RewriteRule ^category/(.*)?$ galeri.php?q=$1
+
+RewriteRule ^privacy?$ privacy.php
+RewriteRule ^contact?$ contact.php
+RewriteRule ^register?$ register.php
+ErrorDocument 404 404.html
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+#Sitemap
+RewriteRule ^map(.*)\.xml$ xml-sitemap-index.php [L]
+RewriteRule ^sitemap.xml$ xml-sitemap-index.php [L]
+RewriteRule map.xml$ xml-sitemap-index.php [L]
+RewriteRule ^sitemap-post/(.*)\.xml$ xml-sitemap.php?file=$1.txt [L]
+
+#sitemap ++
+RewriteRule ^book(.*)\.xml$ xml-sitemap-index.php [L]
