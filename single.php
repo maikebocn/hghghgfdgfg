@@ -16,7 +16,7 @@ include('config.php');
 include ('fungsi.php');
 $q = $_GET['q'];
 $keyword = bersih($q);
-$cano = $domain.'/'.sanitize_title2($q);
+$cano = $domain.'/post/'.sanitize_title2($q);
 $data = ambil_gambar($keyword);
 $rating = number_format(rand( 50, 500));
 ?>
@@ -32,8 +32,9 @@ $rating = number_format(rand( 50, 500));
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title><?php echo $judul.' - '.$site_desc; ?></title>
         <meta property="og:title" content="<?php echo $judul.' - '.$site_desc; ?>">
-        <meta property="og:description" content="Image Galleries for <?php echo $judul; ?>. Download all images of <?php echo $keyword; ?> for free at <?php echo $domen; ?>">
-        <meta name="description" content="Image Galleries for <?php echo $judul; ?>. Download all images of <?php echo $judul; ?> for free at <?php echo $domen; ?>">
+        <meta property="og:description" content="Free <?php echo $judul; ?>. Clipart and Vector, Best Selection of <?php echo $keyword; ?> clip art for your project at <?php echo $domen; ?>">
+        <meta name="description" content="Free <?php echo $judul; ?>. Clipart and Vector, Best Selection of <?php echo $judul; ?> clip art for your project at <?php echo $domen; ?>">
+		<meta name="keywords" content="<?php echo $judul; ?> Clip Art,Clipart <?php echo $judul; ?>,<?php echo $judul; ?> Vector">
         <link rel="canonical" href="<?php echo $cano; ?>" />
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <?php include('css.php'); ?>
@@ -93,7 +94,7 @@ $rating = number_format(rand( 50, 500));
                 </div>
             </div>
 
-			<h3>Tag</h3>
+			<h3>Tag :</h3>
 		<?php echo tag() ;?>
             <div class="striped text-center">
 
@@ -114,15 +115,15 @@ echo '';
    foreach ($feedbing->channel->item as $itembing):
        $titled	= $itembing->title;
        $tit	= $itembing->title;
-$titled		= str_replace(array('www','/','-','+','-','%7C','jpg','php','gif','html','Blogspot','Com','.com','http','Wikipedia','Wikipédia','YouTube','Amazon'),' ',$titled);
+$titled		= str_replace(array('www','/','-','+','-','%7C','jpg','php','gif','html','Blogspot','Com','.com','http','Wikipedia','WikipÃ©dia','YouTube','Amazon'),' ',$titled);
        $url = sanitize_title($titled);
        $desced	= $itembing->description;
-$desced		= str_replace(array('www','/','-','+','-','%7C','jpg','php','gif','html','Blogspot','Com','.com','http','Wikipedia','Wikipédia','YouTube','Amazon'),' ',$desced);
+$desced		= str_replace(array('www','/','-','+','-','%7C','jpg','php','gif','html','Blogspot','Com','.com','http','Wikipedia','WikipÃ©dia','YouTube','Amazon'),' ',$desced);
        $pubded	= $itembing->pubDate; 
   echo  '<strong>'.$titled.'</strong><br>'.$desced.'<br>';
 endforeach;
 	?>
-            <h2><?php echo $keyword; ?> Gallery</h2>
+            <h2><?php echo $keyword; ?> Files</h2>
 			<br>
             <div class="panel panel-default">
 <!-- Iklan Adsense disini -->
