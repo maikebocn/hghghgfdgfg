@@ -22,3 +22,7 @@ RewriteRule ^sitemap-post/(.*)\.xml$ xml-sitemap.php?file=$1.txt [L]
 
 #sitemap ++
 RewriteRule ^book(.*)\.xml$ xml-sitemap-index.php [L]
+
+#DMCA
+Redirect 301 /post/usb-panel-mount-cables http://google.com
+Redirect 301 /post/panel-mount-usb-cable http://google.com
