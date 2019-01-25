@@ -99,17 +99,20 @@ function sanitize_title($text) {
 
 	return $text;
 }
+
+	// test proxy
 function eksekusi($url) {
 	$timeout = 5;
 	$ch = curl_init();
+	curl_setopt($ch, CURLOPT_PROXY, 'http://zproxy.lum-superproxy.io:22225');
+    curl_setopt($ch, CURLOPT_PROXYUSERPWD, 'lum-customer-hl_ef66ff13-zone-static:q2zwb67xdo30');
 	curl_setopt($ch, CURLOPT_URL, $url);
 	curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 	curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, $timeout);
 	$ua = ktz_plugin_random_user_agent();
 	curl_setopt($ch, CURLOPT_USERAGENT, $ua);
 	$data = curl_exec($ch);
-	curl_setopt($data, CURLOPT_PROXY, 'http://zproxy.lum-superproxy.io:22225');
-        curl_setopt($data, CURLOPT_PROXYUSERPWD, 'lum-customer-hl_ef66ff13-zone-static:q2zwb67xdo30');
+
 	curl_close($ch);
 	return $data;
 }
