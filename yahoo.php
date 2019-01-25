@@ -10,7 +10,7 @@ function ambil_gambar($kw) {
 	}
 	else {
 		require_once ("simple_html_dom.php");
-		$url = 'https://images.search.yahoo.com/search/images?p='.$query.'&imgsz=large';
+		$url = 'https://images.search.yahoo.com/search/images?p='.$query.'&imgty=linedrawing&imgsz=large';
 		$fetch = eksekusi($url);
 		$grab = new simple_html_dom();
 		$grab->load($fetch);
