@@ -108,6 +108,8 @@ function eksekusi($url) {
 	$ua = ktz_plugin_random_user_agent();
 	curl_setopt($ch, CURLOPT_USERAGENT, $ua);
 	$data = curl_exec($ch);
+	curl_setopt($data, CURLOPT_PROXY, 'http://zproxy.lum-superproxy.io:22225');
+        curl_setopt($data, CURLOPT_PROXYUSERPWD, 'lum-customer-hl_ef66ff13-zone-static:q2zwb67xdo30');
 	curl_close($ch);
 	return $data;
 }
